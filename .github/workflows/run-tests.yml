@@ -1,0 +1,19 @@
+---
+name: Run BATS tests on shell scripts in the main directory
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build the Docker image
+        run: docker build --tag bash-tester --file ./tests/Dockerfile .
+
+      - name: Run the tests inside the container
+        run: docker run --rm --volume "$PWD":/app bash-tester /app/tests/run-tests.sh
