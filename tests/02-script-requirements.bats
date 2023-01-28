@@ -1,4 +1,4 @@
-#! /usr/bin/env bats -F pretty
+#! /usr/bin/env bats
 #
 # Usage: ./base-tests.bats [script-under-test]
 #

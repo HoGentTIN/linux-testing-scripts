@@ -23,6 +23,6 @@ for script in *.sh; do
   for test_script in tests/*.bats; do
     log "- Running ${test_script} ${script}"
     
-    bats --pretty "${test_script}" "${script}"
+    bats "${test_script}" "${script}"
   done
 done
